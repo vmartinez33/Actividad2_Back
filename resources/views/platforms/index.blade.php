@@ -53,8 +53,8 @@
                                                     &nbsp;&nbsp;
                                                     <form id="delete-form-{{$platform->id}}" action="{{route('platforms.delete', [$platform])}}" 
                                                         method="post" style="display: inline-block;">
-                                                            {{method_field('delete')}}
-                                                            {{csrf_field()}}
+                                                            @method('delete')
+                                                            @csrf
                                                             <button type="submit" class="btn btn-danger">{{__('strings.delete_btn')}}</button>
                                                     </form>
                                                 </div>

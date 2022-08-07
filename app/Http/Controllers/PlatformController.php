@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PlatformController extends Controller
 {
-    const PAGINATE_SIZE = 10;
+    const PAGINATE_SIZE = 5;
     public function index(Request $request) {
 
         $platformName = null;
@@ -43,11 +43,21 @@ class PlatformController extends Controller
     }
 
     public function update(Request $request, Platform $platform) {
+        $this->validatePlatform($request)->validate();
 
+        $platform->name = $request->platformName;
+        $platform->save();
+
+        return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_updated_successfully'));
     }
 
     public function delete(Request $request, Platform $platform) {
+        if($platform != null) {
+            $platform->delete();
+            return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_deleted_successfully'));
+        }
 
+        return redirect()->route('platforms.index')->with('error', Lang::get('alerts.platforms_deleted_error'));
     }
 
     private function validatePlatform($request) {
