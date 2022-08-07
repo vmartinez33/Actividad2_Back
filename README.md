@@ -15,7 +15,7 @@
 
 - **PASO 3** >>> composer require laravel/ui "^1.0" --dev
 
-- **PASO 4* ** >>> php artisan ui vue --auth (Indicar todo el rato que NO se quiere reemplazar los archivos que ya existen)
+- **PASO 4*** >>> php artisan ui vue --auth (Indicar todo el rato que NO se quiere reemplazar los archivos que ya existen)
 
 - **PASO 5** >>> php artisan ui bootstrap
 
