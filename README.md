@@ -22,3 +22,5 @@
 - **PASO 6** >>> npm install
 
 - **PASO 7** >>> npm run dev
+
+*El paso 4 creo que no es necesario.
