@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'en' => 'Inglés',
+    'es' => 'Español',
 
     'home_title' => 'Biblioteca de series',
     'platform_card_header' => 'Plataformas',

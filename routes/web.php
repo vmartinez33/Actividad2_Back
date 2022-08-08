@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('lang/{lang}', 'LanguageController')->name('lang.switch');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('root');
