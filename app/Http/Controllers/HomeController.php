@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(url()->previous() == 'http://localhost/login') {
+            return redirect()->route('root')->with('info', Lang::get('alerts.logged_successfully'));
+        } elseif (url()->previous() == 'http://localhost/register') {
+            return redirect()->route('root')->with('info', Lang::get('alerts.registered_successfully'));
+        } else {
+            return redirect()->route('root')->with('danger', Lang::get('alerts.unknown_error'));
+        }
+
     }
 }

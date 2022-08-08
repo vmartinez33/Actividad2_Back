@@ -11,16 +11,6 @@
 
 - **PASO 1** >>> composer create-project --prefer-dist laravel/laravel biblioteca "6.*" (Se necesita php 7, el 8 no funciona con laravel 6)
 
-- **PASO 2** >>> borrar todos los archivos del proyecto menos el directorio "vendor" y el "node_module"; poner los archivos adjuntados en la entrega.
+- **PASO 2** >>> borrar todos los archivos del proyecto menos el directorio "vendor"; poner los archivos adjuntados en la entrega.
 
 - **PASO 3** >>> composer require laravel/ui "^1.0" --dev
-
-- **PASO 4*** >>> php artisan ui vue --auth (Indicar todo el rato que NO se quiere reemplazar los archivos que ya existen)
-
-- **PASO 5** >>> php artisan ui bootstrap
-
-- **PASO 6** >>> npm install
-
-- **PASO 7** >>> npm run dev
-
-*El paso 4 creo que no es necesario.

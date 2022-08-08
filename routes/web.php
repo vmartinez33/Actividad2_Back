@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('root');
 
 Route::prefix('platforms')->group(function () {
     Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
@@ -25,5 +25,4 @@ Route::prefix('platforms')->group(function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');

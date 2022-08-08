@@ -12,11 +12,11 @@
 
     <div class="card text-center">
         <div class="card-header">
-          Plataformas
+          {{__('strings.platform_card_header')}}
         </div>
         <div class="card-body">
-          <p class="card-text">Listado y gestión de las plataformas creadas en BBDD.</p>
-          <a href="{{route('platforms.index')}}" class="btn btn-primary">Listado de plataformas</a>
+          <p class="card-text">{{__('strings.platform_card_text')}}</p>
+          <a href="{{route('platforms.index')}}" class="btn btn-primary">{{__('strings.list_title.platform')}}</a>
         </div>
     </div>
 @endsection
