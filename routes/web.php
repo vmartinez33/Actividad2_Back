@@ -26,5 +26,41 @@ Route::prefix('platforms')->group(function () {
     Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
 });
 
+Route::prefix('actors')->group(function () {
+    // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
+    // Route::get('/create', 'PlatformController@create')->name('platforms.create');
+    // Route::post('/store', 'PlatformController@store')->name('platforms.store');
+    // Route::get('/{platform}/edit', 'PlatformController@edit')->name('platforms.edit');
+    // Route::post('/{platform}/update', 'PlatformController@update')->name('platforms.update');
+    // Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
+});
+
+Route::prefix('directors')->group(function () {
+    // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
+    // Route::get('/create', 'PlatformController@create')->name('platforms.create');
+    // Route::post('/store', 'PlatformController@store')->name('platforms.store');
+    // Route::get('/{platform}/edit', 'PlatformController@edit')->name('platforms.edit');
+    // Route::post('/{platform}/update', 'PlatformController@update')->name('platforms.update');
+    // Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
+});
+
+Route::prefix('languages')->group(function () {
+    // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
+    // Route::get('/create', 'PlatformController@create')->name('platforms.create');
+    // Route::post('/store', 'PlatformController@store')->name('platforms.store');
+    // Route::get('/{platform}/edit', 'PlatformController@edit')->name('platforms.edit');
+    // Route::post('/{platform}/update', 'PlatformController@update')->name('platforms.update');
+    // Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
+});
+
+Route::prefix('series')->group(function () {
+    // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
+    // Route::get('/create', 'PlatformController@create')->name('platforms.create');
+    // Route::post('/store', 'PlatformController@store')->name('platforms.store');
+    // Route::get('/{platform}/edit', 'PlatformController@edit')->name('platforms.edit');
+    // Route::post('/{platform}/update', 'PlatformController@update')->name('platforms.update');
+    // Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
+});
+
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
