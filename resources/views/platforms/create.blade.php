@@ -2,9 +2,9 @@
 
 @section('title')
     @isset($platform)
-        {{__('strings.edit_title')}}
+        {{__('strings.edit_title.platform')}}
     @else
-        {{__('strings.create_title')}}
+        {{__('strings.create_title.platform')}}
     @endisset
 @endsection
 
@@ -15,9 +15,9 @@
                 <div class="card-header border-0">
                     <div class="row">
                         @isset($platform)
-                            <h1>{{__('strings.edit_title')}} {{$platform->name}}</h1>
+                            <h1>{{__('strings.edit_title.platform')}} {{$platform->name}}</h1>
                         @else
-                            <h1>{{__('strings.create_title')}}</h1>
+                            <h1>{{__('strings.create_title.platform')}}</h1>
                         @endisset
                     </div>
                 </div>
@@ -30,8 +30,8 @@
                             @csrf
                     @endisset
                             <div class="mb-3">
-                                <label for="platformName" class="form-label">{{__('strings.name_header')}}</label>
-                                <input id="platformName" name="platformName" type="text" placeholder="{{__('strings.name_placeholder')}}" 
+                                <label for="platformName" class="form-label">{{__('strings.platform_headers.name')}}</label>
+                                <input id="platformName" name="platformName" type="text" placeholder="{{__('strings.platform_placeholders.name')}}" 
                                 class="form-control" required @isset($platform) value="{{old('platformName', $platform->name)}}" 
                                 @else value="{{old('platformName')}}" @endisset>
                             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{__('strings.list_title')}}    
+    {{__('strings.list_title.platform')}}    
 @endsection
 
 @section('content')
@@ -10,12 +10,12 @@
             <div class="card shadow">
                 <div class="card-header border-0">
                     <div class="row">
-                        <h1>{{__('strings.list_title')}}</h1>
+                        <h1>{{__('strings.list_title.platform')}}</h1>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <a class="header__link btn btn-sm btn-success" href="{{route('platforms.create')}}">
-                                {{__('strings.create_platform')}}&nbsp;<i class="fas fa-plus"></i></a>
+                                {{__('strings.create_title.platform')}}&nbsp;<i class="fas fa-plus"></i></a>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <form action="" method="post">
                             @csrf
                             <input id="platformName" name="platformName" class="form-control" value="@isset($platformName) {{$platformName}} 
-                            @endisset" placeholder="{{__('strings.search_platform_name_placeholder')}}" type="text">
+                            @endisset" placeholder="{{__('strings.platform_search_placeholders.name')}}" type="text">
                             <button type="submit" class="btn btn-primary">{{__('strings.search_btn')}}</button>
                         </form>
                     </div>
@@ -34,7 +34,7 @@
                             <table class="table table-striped align-items-center">
                                 <thead class="thead-light">
                                     <th>{{__('strings.id_header')}}</th>
-                                    <th>{{__('strings.name_header')}}</th>
+                                    <th>{{__('strings.platform_headers.name')}}</th>
                                     <th>{{__('strings.actions_header')}}</th>
                                 </thead>
                                 <tbody>
