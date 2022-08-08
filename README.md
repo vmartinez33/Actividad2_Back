@@ -14,3 +14,5 @@
 - **PASO 2** >>> borrar todos los archivos del proyecto menos el directorio "vendor"; poner los archivos adjuntados en la entrega.
 
 - **PASO 3** >>> composer require laravel/ui "^1.0" --dev
+
+- **PASO 4** >>> php artisan migrate
