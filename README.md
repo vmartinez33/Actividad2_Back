@@ -15,4 +15,6 @@
 
 - **PASO 3** >>> composer require laravel/ui "^1.0" --dev
 
-- **PASO 4** >>> php artisan migrate
+- **PASO 4** >>> Crear una base de datos desde phpMyadmin con el nombre biblioteca_series (comprobar que se puede realizar la conexión o si se debe de cambiar el puerto).
+
+- **PASO 5** >>> php artisan migrate
