@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlatformsTable extends Migration
+class CreateActorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreatePlatformsTable extends Migration
      */
     public function up()
     {
-        Schema::create('platforms', function (Blueprint $table) {
+        Schema::create('actors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 50);
+            $table->string('first_surname', 50);
+            $table->string('second_surname', 50)->nullable();
+            $table->string('dni', 10)->unique();
+            $table->date('birth_date');
+            $table->string('nationality', 50);
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ class CreatePlatformsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('platforms');
+        Schema::dropIfExists('actors');
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Platform;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
 
@@ -63,7 +62,7 @@ class PlatformController extends Controller
 
     private function validatePlatform($request) {
         return Validator::make($request->all(), [
-            'platformName' => ['required', 'string', 'max:255', 'min:3']
+            'platformName' => ['required', 'string', 'max:50']
         ]);
     }
 }
