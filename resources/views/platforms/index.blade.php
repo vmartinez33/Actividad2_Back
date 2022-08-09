@@ -24,7 +24,7 @@
                         <form action="" method="post">
                             @csrf
                             <input id="platformName" name="platformName" class="form-control" value="@isset($platformName) {{$platformName}} 
-                            @endisset" placeholder="{{__('strings.platform_search_placeholders.name')}}" type="text">
+                            @endisset" placeholder="{{__('strings.platform_search_placeholder')}}" type="text">
                             <button type="submit" class="btn btn-primary">{{__('strings.search_btn')}}</button>
                         </form>
                     </div>

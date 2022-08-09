@@ -23,8 +23,8 @@
                     <div class="col-md-6">
                         <form action="" method="post">
                             @csrf
-                            <input id="directorName" name="directorName" class="form-control" value="@isset($directorName) {{$directorName}} 
-                            @endisset" placeholder="{{__('strings.director_search_placeholders.name')}}" type="text">
+                            <input id="text" name="text" class="form-control" value="@isset($text) {{$text}} 
+                            @endisset" placeholder="{{__('strings.director_search_placeholder')}}" type="text">
                             <button type="submit" class="btn btn-primary">{{__('strings.search_btn')}}</button>
                         </form>
                     </div>
@@ -61,7 +61,7 @@
                                                 {{$director->dni}}
                                             </td>
                                             <td>
-                                                {{$director->birth_date}}
+                                                {{$director->birth_date->format('d/m/Y')}}
                                             </td>
                                             <td>
                                                 {{$director->nationality}}

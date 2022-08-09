@@ -31,11 +31,15 @@ class PlatformController extends Controller
     public function store(Request $request) {
         $this->validatePlatform($request)->validate();
 
-        $platform = new Platform();
-        $platform->name = $request->platformName;
-        $platform->save();
-
-        return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_created_successfully'));
+        if($route = $this->validateName($request)) {
+            return $route;
+        } else {
+            $platform = new Platform();
+            $platform->name = $request->platformName;
+            $platform->save();
+    
+            return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_created_successfully'));
+        }  
     }
 
     public function edit(Platform $platform) {
@@ -45,10 +49,14 @@ class PlatformController extends Controller
     public function update(Request $request, Platform $platform) {
         $this->validatePlatform($request)->validate();
 
-        $platform->name = $request->platformName;
-        $platform->save();
+        if($route = $this->validateName($request, $platform->id)) {
+            return $route;
+        } else {  
+            $platform->name = $request->platformName;
+            $platform->save();
 
-        return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_updated_successfully'));
+            return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_updated_successfully'));
+        }
     }
 
     public function delete(Request $request, Platform $platform) {
@@ -57,12 +65,19 @@ class PlatformController extends Controller
             return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_deleted_successfully'));
         }
 
-        return redirect()->route('platforms.index')->with('error', Lang::get('alerts.platforms_deleted_error'));
+        return redirect()->route('platforms.index')->with('danger', Lang::get('alerts.platforms_deleted_error'));
     }
 
     private function validatePlatform($request) {
         return Validator::make($request->all(), [
             'platformName' => ['required', 'string', 'max:50']
         ]);
+    }
+
+    private function validateName($request, $platform_id = 0) {
+        if(Platform::where([['name', $request->platformName], ['id', '!=', $platform_id]])->exists()) {
+            $request->flashExcept('platformName');
+            return redirect()->back()->with('danger', Lang::get('alerts.platforms_name_exists_error'));
+        }
     }
 }

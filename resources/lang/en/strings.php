@@ -123,20 +123,9 @@ return [
     ],
 
 
-    'platform_search_placeholders' => [
-        'name' => 'Name of the platform to search...',
-    ],
-    'actor_search_placeholders' => [
-        'name' => 'Name of the actor to search...',
-    ],
-    'director_search_placeholders' => [
-        'name' => 'Name of the director to search...',
-    ],
-    'language_search_placeholders' => [
-        'name' => 'Name of the language to search...',
-    ],
-    'series_search_placeholders' => [
-        'title' => 'Title of the series to search...',
-    ],
-
+    'platform_search_placeholder' => 'Text for platform search...',
+    'actor_search_placeholder' => 'Text for actor search...',
+    'director_search_placeholder' => 'Text for director search...',
+    'language_search_placeholder' => 'Text for language search...',
+    'series_search_placeholder' => 'Text for series search...',
 ];

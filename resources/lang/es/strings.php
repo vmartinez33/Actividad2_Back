@@ -123,20 +123,9 @@ return [
     ],
 
 
-    'platform_search_placeholders' => [
-        'name' => 'Nombre de la plataforma a buscar...',
-    ],
-    'actor_search_placeholders' => [
-        'name' => 'Nombre del actor a buscar...',
-    ],
-    'director_search_placeholders' => [
-        'name' => 'Nombre del director a buscar...',
-    ],
-    'language_search_placeholders' => [
-        'name' => 'Nombre del idioma a buscar...',
-    ],
-    'series_search_placeholders' => [
-        'title' => 'Titulo de la serie a buscar...',
-    ],
-    
+    'platform_search_placeholder' => 'Texto para la búsqueda de plataformas...',
+    'actor_search_placeholder' => 'Texto para la búsqueda de actores...',
+    'director_search_placeholder' => 'Texto para la búsqueda de directores...',
+    'language_search_placeholder' => 'Texto para la búsqueda de idiomas...',
+    'series_search_placeholder' => 'Texto para la búsqueda de series...',
 ];
