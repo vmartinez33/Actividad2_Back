@@ -54,12 +54,12 @@ Route::prefix('languages')->middleware('auth')->group(function () {
 });
 
 Route::prefix('series')->middleware('auth')->group(function () {
-    // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
-    // Route::get('/create', 'PlatformController@create')->name('platforms.create');
-    // Route::post('/store', 'PlatformController@store')->name('platforms.store');
-    // Route::get('/{platform}/edit', 'PlatformController@edit')->name('platforms.edit');
-    // Route::post('/{platform}/update', 'PlatformController@update')->name('platforms.update');
-    // Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
+    Route::match(['get', 'post'], '/', 'SeriesController@index')->name('series.index');
+    Route::get('/create', 'SeriesController@create')->name('series.create');
+    Route::post('/store', 'SeriesController@store')->name('series.store');
+    Route::get('/{series}/edit', 'SeriesController@edit')->name('series.edit');
+    Route::post('/{series}/update', 'SeriesController@update')->name('series.update');
+    Route::delete('/{series}/delete', 'SeriesController@delete')->name('series.delete');
 });
 
 Auth::routes();
