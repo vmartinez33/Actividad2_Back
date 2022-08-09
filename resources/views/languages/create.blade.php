@@ -35,8 +35,8 @@
                                 class="form-control" required @isset($language) value="{{old('languageName', $language->name)}}" 
                                 @else value="{{old('languageName')}}" @endisset>
 
-                                <label for="languageIsoCode" class="form-label">{{__('strings.language_headers.isoCode')}}</label>
-                                <input id="languageIsoCode" name="languageIsoCode" type="text" placeholder="{{__('strings.language_placeholders.isoCode')}}" 
+                                <label for="languageIsoCode" class="form-label">{{__('strings.language_headers.iso_code')}}</label>
+                                <input id="languageIsoCode" name="languageIsoCode" type="text" placeholder="{{__('strings.language_placeholders.iso_code')}}" 
                                 class="form-control" required @isset($language) value="{{old('languageIsoCode', $language->iso_code)}}" 
                                 @else value="{{old('languageIsoCode')}}" @endisset>
 

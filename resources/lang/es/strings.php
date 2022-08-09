@@ -7,6 +7,14 @@ return [
     'home_title' => 'Biblioteca de series',
     'platform_card_header' => 'Plataformas',
     'platform_card_text' => 'Listado y gestión de las plataformas creadas en BBDD.',
+    'actor_card_header' => 'Actores',
+    'actor_card_text' => 'Listado y gestión de los actores creados en BBDD (es necesario iniciar sessión).',
+    'director_card_header' => 'Directores',
+    'director_card_text' => 'Listado y gestión de los directores creados en BBDD (es necesario iniciar sessión).',
+    'language_card_header' => 'Idiomas',
+    'language_card_text' => 'Listado y gestión de los idiomas creados en BBDD (es necesario iniciar sessión).',
+    'series_card_header' => 'Series',
+    'series_card_text' => 'Listado y gestión de las series creadas en BBDD (es necesario iniciar sessión).',
 
     'login' => 'Iniciar sesión',
     'register' => 'Registrarse',
@@ -53,54 +61,82 @@ return [
         'series' => 'Editar serie',
     ],
 
+
     'id_header' => 'ID',
     'actions_header' => 'Acciones',
     'platform_headers' => [
         'name' => 'Nombre de la plataforma',
     ],
     'actor_headers' => [
-
+        'name' => 'Nombre',
+        'first_surname' => 'Primer apellido',
+        'second_surname' => 'Segundo apellido',
+        'dni' => 'DNI',
+        'birth_date' => 'Fecha de nacimiento',
+        'nationality' => 'Nacionalidad',
     ],
     'director_headers' => [
-
+        'name' => 'Nombre',
+        'first_surname' => 'Primer apellido',
+        'second_surname' => 'Segundo apellido',
+        'dni' => 'DNI',
+        'birth_date' => 'Fecha de nacimiento',
+        'nationality' => 'Nacionalidad',
     ],
     'language_headers' => [
-
+        'name' => 'Nombre del idioma',
+        'iso_code' => 'Código ISO',
     ],
     'series_headers' => [
-
+        'title' => 'Titulo',
+        'platform' => 'Plataforma',
+        'director' => 'Director',
+        'actors' => 'Actores',
+        'audio_lang' => 'Idiomas AUDIO',
+        'subtitles_lang' => 'Idiomas SUBTITULOS',
     ],
+
 
     'platform_placeholders' => [
         'name' => 'Introduce el nombre de la plataforma',
     ],
     'actor_placeholders' => [
-
+        'name' => 'Introduce el nombre del actor',
+        'first_surname' => 'Introduce el primer apellido del actor',
+        'second_surname' => 'Introduce el segundo apellido del actor',
+        'dni' => 'Introduce el DNI del actor',
+        'nationality' => 'Introduce la nacionalidad del actor',
     ],
     'director_placeholders' => [
-
+        'name' => 'Introduce el nombre del director',
+        'first_surname' => 'Introduce el primer apellido del director',
+        'second_surname' => 'Introduce el segundo apellido del director',
+        'dni' => 'Introduce el DNI del director',
+        'nationality' => 'Introduce la nacionalidad del director',
     ],
     'language_placeholders' => [
-
+        'name' => 'Introduce el nombre del idioma',
+        'iso_code' => 'Introduce el código ISO del idioma',
     ],
     'series_placeholders' => [
-
+        'title' => 'Introduce el titulo de la serie',
     ],
+
 
     'platform_search_placeholders' => [
         'name' => 'Nombre de la plataforma a buscar...',
     ],
     'actor_search_placeholders' => [
-
+        'name' => 'Nombre del actor a buscar...',
     ],
     'director_search_placeholders' => [
-
+        'name' => 'Nombre del director a buscar...',
     ],
     'language_search_placeholders' => [
-
+        'name' => 'Nombre del idioma a buscar...',
     ],
     'series_search_placeholders' => [
-
+        'title' => 'Titulo de la serie a buscar...',
     ],
     
 ];

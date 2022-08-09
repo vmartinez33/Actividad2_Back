@@ -26,7 +26,7 @@ Route::prefix('platforms')->group(function () {
     Route::delete('/{platform}/delete', 'PlatformController@delete')->name('platforms.delete');
 });
 
-Route::prefix('actors')->group(function () {
+Route::prefix('actors')->middleware('auth')->group(function () {
     Route::match(['get', 'post'], '/', 'ActorController@index')->name('actors.index');
     Route::get('/create', 'ActorController@create')->name('actors.create');
     Route::post('/store', 'ActorController@store')->name('actors.store');
@@ -35,7 +35,7 @@ Route::prefix('actors')->group(function () {
     Route::delete('/{actor}/delete', 'ActorController@delete')->name('actors.delete');
 });
 
-Route::prefix('directors')->group(function () {
+Route::prefix('directors')->middleware('auth')->group(function () {
     Route::match(['get', 'post'], '/', 'DirectorController@index')->name('directors.index');
     Route::get('/create', 'DirectorController@create')->name('directors.create');
     Route::post('/store', 'DirectorController@store')->name('directors.store');
@@ -53,7 +53,7 @@ Route::prefix('languages')->middleware('auth')->group(function () {
     Route::delete('/{language}/delete', 'LanguageController@delete')->name('languages.delete');
 });
 
-Route::prefix('series')->group(function () {
+Route::prefix('series')->middleware('auth')->group(function () {
     // Route::match(['get', 'post'], '/', 'PlatformController@index')->name('platforms.index');
     // Route::get('/create', 'PlatformController@create')->name('platforms.create');
     // Route::post('/store', 'PlatformController@store')->name('platforms.store');
