@@ -34,6 +34,7 @@ return [
     'series_updated_successfully' => 'Serie modificada correctamente',
     'series_deleted_successfully' => 'Serie borrada correctamente',
     'series_deleted_error' => 'Serie no borrada correctamente',
+    'series_title_exists_error' => 'Ya existe una serie con ese titulo',
 
     'logged_successfully' => 'Has iniciado sesión correctamente',
     'registered_successfully' => 'Te has registrado correctamente. La sesión se ha iniciado automáticamente.',

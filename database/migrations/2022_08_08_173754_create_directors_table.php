@@ -17,8 +17,8 @@ class CreateDirectorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 50);
             $table->string('first_surname', 50);
-            $table->string('second_surname', 50) -> nullable();
-            $table->string('dni', 10) -> unique();
+            $table->string('second_surname', 50)->nullable();
+            $table->string('dni', 10)->unique();
             $table->date('birth_date');
             $table->string('nationality', 50);
             $table->timestamps();
