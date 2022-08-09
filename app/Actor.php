@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actor extends Model
 {
-    //
+    protected $dates = ['birth_date'];
 }

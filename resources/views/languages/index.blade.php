@@ -35,7 +35,7 @@
                                 <thead class="thead-light">
                                     <th>{{__('strings.id_header')}}</th>
                                     <th>{{__('strings.language_headers.name')}}</th>
-                                    <th>{{__('strings.language_headers.isoCode')}}</th>
+                                    <th>{{__('strings.language_headers.iso_code')}}</th>
                                     <th>{{__('strings.actions_header')}}</th>
                                 </thead>
                                 <tbody>

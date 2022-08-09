@@ -35,13 +35,13 @@
                                 class="form-control" required @isset($director) value="{{old('directorName', $director->name)}}" 
                                 @else value="{{old('directorName')}}" @endisset>
 
-                                <label for="directorFirstSurname" class="form-label">{{__('strings.director_headers.firstSurname')}}</label>
-                                <input id="directorFirstSurname" name="directorFirstSurname" type="text" placeholder="{{__('strings.director_placeholders.firstSurname')}}" 
+                                <label for="directorFirstSurname" class="form-label">{{__('strings.director_headers.first_surname')}}</label>
+                                <input id="directorFirstSurname" name="directorFirstSurname" type="text" placeholder="{{__('strings.director_placeholders.first_surname')}}" 
                                 class="form-control" required @isset($director) value="{{old('directorFirstSurname', $director->first_surname)}}" 
                                 @else value="{{old('directorFirstSurname')}}" @endisset>
 
-                                <label for="directorSecondSurname" class="form-label">{{__('strings.director_headers.secondSurname')}}</label>
-                                <input id="directorSecondSurname" name="directorSecondSurname" type="text" placeholder="{{__('strings.director_placeholders.secondSurname')}}" 
+                                <label for="directorSecondSurname" class="form-label">{{__('strings.director_headers.second_surname')}}</label>
+                                <input id="directorSecondSurname" name="directorSecondSurname" type="text" placeholder="{{__('strings.director_placeholders.second_surname')}}" 
                                 class="form-control" @isset($director) value="{{old('directorSecondSurname', $director->second_surname)}}" 
                                 @else value="{{old('directorSecondSurname')}}" @endisset>
 
@@ -50,8 +50,8 @@
                                 class="form-control" required @isset($director) value="{{old('directorDni', $director->dni)}}" 
                                 @else value="{{old('directorDni')}}" @endisset>
 
-                                <label for="directorBirthDate" class="form-label">{{__('strings.director_headers.birthDate')}}</label>
-                                <input id="directorBirthDate" name="directorBirthDate" type="date" placeholder="{{__('strings.director_placeholders.birthDate')}}" 
+                                <label for="directorBirthDate" class="form-label">{{__('strings.director_headers.birth_date')}}</label>
+                                <input id="directorBirthDate" name="directorBirthDate" type="date" 
                                 class="form-control" required @isset($director) value="{{old('directorBirthDate', $director->birth_date)}}" 
                                 @else value="{{old('directorBirthDate')}}" @endisset>
 

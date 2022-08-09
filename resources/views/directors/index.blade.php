@@ -35,10 +35,10 @@
                                 <thead class="thead-light">
                                     <th>{{__('strings.id_header')}}</th>
                                     <th>{{__('strings.director_headers.name')}}</th>
-                                    <th>{{__('strings.director_headers.firstSurname')}}</th>
-                                    <th>{{__('strings.director_headers.secondSurname')}}</th>
+                                    <th>{{__('strings.director_headers.first_surname')}}</th>
+                                    <th>{{__('strings.director_headers.second_surname')}}</th>
                                     <th>{{__('strings.director_headers.dni')}}</th>
-                                    <th>{{__('strings.director_headers.birthDate')}}</th>
+                                    <th>{{__('strings.director_headers.birth_date')}}</th>
                                     <th>{{__('strings.director_headers.nationality')}}</th>
                                     <th>{{__('strings.actions_header')}}</th>
                                 </thead>

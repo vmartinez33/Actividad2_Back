@@ -51,9 +51,9 @@
                                     @else value="{{old('actorDni')}}" @endisset>
                                 <label for="actorBirthDate" class="form-label">{{__('strings.actor_headers.birth_date')}}</label>
                                 <input id="actorBirthDate" name="actorBirthDate" type="date" 
-                                    placeholder="{{__('strings.actor_placeholders.birth_date')}}" class="form-control" required 
-                                    @isset($actor) value="{{old('actorBirthDate', $actor->birth_date)}}" 
-                                    @else value="{{old('actorBirthDate')}}" @endisset>
+                                    class="form-control" required @isset($actor) 
+                                    value="{{old('actorBirthDate', $actor->birth_date->format('Y-m-d'))}}" @else 
+                                    value="{{old('actorBirthDate')}}" @endisset>
                                 <label for="actorNationality" class="form-label">{{__('strings.actor_headers.nationality')}}</label>
                                 <input id="actorNationality" name="actorNationality" type="text" 
                                     placeholder="{{__('strings.actor_placeholders.nationality')}}" class="form-control" required 

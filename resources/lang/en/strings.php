@@ -7,6 +7,14 @@ return [
     'home_title' => 'Series library',
     'platform_card_header' => 'Platforms',
     'platform_card_text' => 'List and management of the platforms created in DB.',
+    'actor_card_header' => 'Actors',
+    'actor_card_text' => 'List and management of the actors created in DB (login required).',
+    'director_card_header' => 'Directors',
+    'director_card_text' => 'List and management of the directors created in DB (login required).',
+    'language_card_header' => 'Languages',
+    'language_card_text' => 'List and management of the languages created in DB (login required).',
+    'series_card_header' => 'Series',
+    'series_card_text' => 'List and management of the series created in DB (login required).',
 
     'login' => 'Login',
     'register' => 'Register',
@@ -53,54 +61,82 @@ return [
         'series' => 'Edit series',
     ],
 
+
     'id_header' => 'ID',
     'actions_header' => 'Actions',
     'platform_headers' => [
         'name' => 'Platform name',
     ],
     'actor_headers' => [
-
+        'name' => 'Name',
+        'first_surname' => 'First surname',
+        'second_surname' => 'Second surname',
+        'dni' => 'DNI',
+        'birth_date' => 'Birth date',
+        'nationality' => 'Nationality',
     ],
     'director_headers' => [
-
+        'name' => 'Name',
+        'first_surname' => 'First surname',
+        'second_surname' => 'Second surname',
+        'dni' => 'DNI',
+        'birth_date' => 'Birth date',
+        'nationality' => 'Nationality',
     ],
     'language_headers' => [
-
+        'name' => 'Language name',
+        'iso_code' => 'ISO code',
     ],
     'series_headers' => [
-
+        'title' => 'Title',
+        'platform' => 'Platform',
+        'director' => 'Director',
+        'actors' => 'Actors',
+        'audio_lang' => 'AUDIO Languages',
+        'subtitles_lang' => 'SUBTITLES Languages',
     ],
+
 
     'platform_placeholders' => [
         'name' => 'Enter the name of the platform',
     ],
     'actor_placeholders' => [
-
+        'name' => 'Enter the name of the actor',
+        'first_surname' => 'Enter the first surname of the actor',
+        'second_surname' => 'Enter the second surname of the actor',
+        'dni' => 'Enter the DNI of the actor',
+        'nationality' => 'Enter the nationality of the actor',
     ],
     'director_placeholders' => [
-
+        'name' => 'Enter the name of the director',
+        'first_surname' => 'Enter the first surname of the director',
+        'second_surname' => 'Enter the second surname of the director',
+        'dni' => 'Enter the DNI of the director',
+        'nationality' => 'Enter the nationality of the director',
     ],
     'language_placeholders' => [
-
+        'name' => 'Enter the name of the language',
+        'iso_code' => 'Enter the ISO code of the language',
     ],
     'series_placeholders' => [
-
+        'title' => 'Enter the title of the series',
     ],
+
 
     'platform_search_placeholders' => [
         'name' => 'Name of the platform to search...',
     ],
     'actor_search_placeholders' => [
-
+        'name' => 'Name of the actor to search...',
     ],
     'director_search_placeholders' => [
-
+        'name' => 'Name of the director to search...',
     ],
     'language_search_placeholders' => [
-
+        'name' => 'Name of the language to search...',
     ],
     'series_search_placeholders' => [
-
+        'title' => 'Title of the series to search...',
     ],
 
 ];

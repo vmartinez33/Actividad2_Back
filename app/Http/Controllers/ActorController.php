@@ -76,7 +76,7 @@ class ActorController extends Controller
             'actorFirstSurname' => ['required', 'string', 'max:50'],
             'actorSecondSurname' => ['nullable', 'string', 'max:50'],
             'actorDni' => ['required', 'string', 'between:9,10'],
-            'actorBirthDate' => ['required', 'date'],
+            'actorBirthDate' => ['required', 'date', 'before:today'],
             'actorNationality' => ['required', 'string', 'max:50']
         ]);
     }

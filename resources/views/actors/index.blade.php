@@ -61,7 +61,7 @@
                                                 {{$actor->dni}}
                                             </td>
                                             <td>
-                                                {{$actor->birth_date}}
+                                                {{$actor->birth_date->format('d/m/Y')}}
                                             </td>
                                             <td>
                                                 {{$actor->nationality}}
