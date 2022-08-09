@@ -13,15 +13,17 @@ class DirectorController extends Controller
 
     public function index(Request $request) {
 
-        $directorName = null;
-        if($request->has('directorName')) {
-            $directorName = $request->directorName;
-            $directors = Director::where('name', 'like', '%' . $directorName . '%')->paginate(self::PAGINATE_SIZE);
+        $text = null;
+        if($request->has('text')) {
+            $text = $request->text;
+            $directors = Director::where('name', 'like', '%' . $text . '%')->orWhere('first_surname', 'like', '%' . $text . '%')->
+            orWhere('second_surname', 'like', '%' . $text . '%')->orWhere('dni', 'like', '%' . $text . '%')->
+            orWhere('nationality', 'like', '%' . $text . '%')->paginate(self::PAGINATE_SIZE);
         } else {
             $directors = Director::paginate(self::PAGINATE_SIZE);
         }
 
-        return view('directors.index', ['directors' => $directors, 'directorName' => $directorName]);
+        return view('directors.index', ['directors' => $directors, 'text' => $text]);
     }
 
     public function create() {
@@ -30,17 +32,21 @@ class DirectorController extends Controller
 
     public function store(Request $request) {
         $this->validateDirector($request)->validate();
+       
+        if($route = $this->validateDni($request)) {
+            return $route;
+        }else {   
+            $director = new Director();
+            $director->name = $request->directorName;
+            $director->first_surname = $request->directorFirstSurname;
+            $director->second_surname = $request->directorSecondSurname;
+            $director->dni = $request->directorDni;
+            $director->birth_date = $request->directorBirthDate;
+            $director->nationality = $request->directorNationality;
+            $director->save();
 
-        $director = new Director();
-        $director->name = $request->directorName;
-        $director->first_surname = $request->directorFirstSurname;
-        $director->second_surname = $request->directorSecondSurname;
-        $director->dni = $request->directorDni;
-        $director->birth_date = $request->directorBirthDate;
-        $director->nationality = $request->directorNationality;
-        $director->save();
-
-        return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_created_successfully'));
+            return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_created_successfully'));
+        }
     }
 
     public function edit(Director $director) {
@@ -50,15 +56,19 @@ class DirectorController extends Controller
     public function update(Request $request, Director $director) {
         $this->validateDirector($request)->validate();
 
-        $director->name = $request->directorName;
-        $director->first_surname = $request->directorFirstSurname;
-        $director->second_surname = $request->directorSecondSurname;
-        $director->dni = $request->directorDni;
-        $director->birth_date = $request->directorBirthDate;
-        $director->nationality = $request->directorNationality;
-        $director->save();
+        if($route = $this->validateDni($request, $director->id)) {
+            return $route;
+        }else {   
+            $director->name = $request->directorName;
+            $director->first_surname = $request->directorFirstSurname;
+            $director->second_surname = $request->directorSecondSurname;
+            $director->dni = $request->directorDni;
+            $director->birth_date = date('Y-m-d', strtotime($request->directorBirthDate));
+            $director->nationality = $request->directorNationality;
+            $director->save();
 
-        return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_updated_successfully'));
+            return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_updated_successfully'));
+        }
     }
 
     public function delete(Request $request, Director $director) {
@@ -67,7 +77,7 @@ class DirectorController extends Controller
             return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_deleted_successfully'));
         }
 
-        return redirect()->route('directors.index')->with('error', Lang::get('alerts.directors_deleted_error'));
+        return redirect()->route('directors.index')->with('danger', Lang::get('alerts.directors_deleted_error'));
     }
 
     private function validateDirector($request) {
@@ -79,6 +89,13 @@ class DirectorController extends Controller
             //'directorBirthDate' => ['date_format:d/m/Y'],
             'directorNationality' => ['required', 'string', 'max:50']
         ]);
+    }
+
+    private function validateDni($request, $director_id = 0) {
+        if(Director::where([['dni', $request->directorDni], ['id', '!=', $director_id]])->exists()) {
+            $request->flashExcept('directorDni');
+            return redirect()->back()->with('danger', Lang::get('alerts.directors_dni_exists_error'));
+        }
     }
 
 }

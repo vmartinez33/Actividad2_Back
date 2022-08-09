@@ -23,8 +23,8 @@
                     <div class="col-md-6">
                         <form action="" method="post">
                             @csrf
-                            <input id="languageName" name="languageName" class="form-control" value="@isset($languageName) {{$languageName}} 
-                            @endisset" placeholder="{{__('strings.language_search_placeholders.name')}}" type="text">
+                            <input id="text" name="text" class="form-control" value="@isset($text) {{$text}} 
+                            @endisset" placeholder="{{__('strings.language_search_placeholder')}}" type="text">
                             <button type="submit" class="btn btn-primary">{{__('strings.search_btn')}}</button>
                         </form>
                     </div>

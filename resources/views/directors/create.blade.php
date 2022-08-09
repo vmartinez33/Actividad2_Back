@@ -52,7 +52,7 @@
 
                                 <label for="directorBirthDate" class="form-label">{{__('strings.director_headers.birth_date')}}</label>
                                 <input id="directorBirthDate" name="directorBirthDate" type="date" 
-                                class="form-control" required @isset($director) value="{{old('directorBirthDate', $director->birth_date)}}" 
+                                class="form-control" required @isset($director) value="{{old('directorBirthDate', $director->birth_date->format('Y-m-d'))}}" 
                                 @else value="{{old('directorBirthDate')}}" @endisset>
 
                                 <label for="directorNationality" class="form-label">{{__('strings.director_headers.nationality')}}</label>

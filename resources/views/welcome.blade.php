@@ -19,14 +19,14 @@
           <a href="{{route('platforms.index')}}" class="btn btn-primary">{{__('strings.list_title.platform')}}</a>
         </div>
     </div>
-    {{-- <div class="card text-center">
+    <div class="card text-center">
       <div class="card-header">
         {{__('strings.actor_card_header')}}
       </div>
       <div class="card-body">
         <p class="card-text">{{__('strings.actor_card_text')}}</p>
         <a href="{{route('actors.index')}}" class="btn btn-primary">{{__('strings.list_title.actor')}}</a>
-      </div> --}}
+      </div>
      <div class="card text-center">
         <div class="card-header">
           {{__('strings.director_card_header')}}
