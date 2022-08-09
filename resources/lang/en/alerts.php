@@ -34,6 +34,7 @@ return [
     'series_updated_successfully' => 'Series modified successfully',
     'series_deleted_successfully' => 'Series deleted successfully',
     'series_deleted_error' => 'Series not deleted correctly',
+    'series_title_exists_error' => 'There is already a series with that title',
 
     'logged_successfully' => 'You have successfully logged in',
     'registered_successfully' => 'You have successfully registered. The session has been started automatically.',
