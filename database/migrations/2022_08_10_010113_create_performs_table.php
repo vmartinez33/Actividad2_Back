@@ -14,13 +14,13 @@ class CreatePerformsTable extends Migration
     public function up()
     {
         Schema::create('performs', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_actor');
-            $table->unsignedBigInteger('id_series');
+            $table->unsignedBigInteger('actor_id');
+            $table->unsignedBigInteger('serie_id');
             $table->timestamps();
 
-            $table->primary(['id_actor', 'id_series']);
-            $table->foreign('id_actor')->references('id')->on('actors')->onDelete('restrict')->onUpdate('restrict');
-            $table->foreign('id_series')->references('id')->on('series')->onDelete('restrict')->onUpdate('restrict');
+            $table->primary(['actor_id', 'serie_id']);
+            $table->foreign('actor_id')->references('id')->on('actors')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('serie_id')->references('id')->on('series')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

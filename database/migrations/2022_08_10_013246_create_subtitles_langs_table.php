@@ -14,13 +14,13 @@ class CreateSubtitlesLangsTable extends Migration
     public function up()
     {
         Schema::create('subtitles_langs', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_language');
-            $table->unsignedBigInteger('id_series');
+            $table->unsignedBigInteger('language_id');
+            $table->unsignedBigInteger('serie_id');
             $table->timestamps();
 
-            $table->primary(['id_language', 'id_series']);
-            $table->foreign('id_language')->references('id')->on('languages')->onDelete('restrict')->onUpdate('restrict');
-            $table->foreign('id_series')->references('id')->on('series')->onDelete('restrict')->onUpdate('restrict');
+            $table->primary(['language_id', 'serie_id']);
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('serie_id')->references('id')->on('series')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
