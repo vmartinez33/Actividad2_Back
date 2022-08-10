@@ -34,7 +34,6 @@ class SeriesController extends Controller
     }
 
     public function store(Request $request) {
-        // dd($request->seriesActors);
         $this->validateSeries($request)->validate();
 
         if($route = $this->validateDB($request)) {
@@ -44,12 +43,11 @@ class SeriesController extends Controller
             $series->title = $request->seriesTitle;
             $series->platform_id = $request->seriesPlatform;
             $series->director_id = $request->seriesDirector;
-
-            
-
-            dd($series);
             $series->save();
-
+            $series->actors()->attach($request->seriesActors);
+            $series->audioLanguages()->attach($request->seriesAudioLanguages);
+            $series->subtitlesLanguages()->attach($request->seriesSubtitlesLanguages);
+            
             return redirect()->route('series.index')->with('success', Lang::get('alerts.series_created_successfully'));
         }
     }
@@ -63,11 +61,33 @@ class SeriesController extends Controller
     }
 
     public function update(Request $request, Serie $series) {
+        $this->validateSeries($request)->validate();
 
+        if($route = $this->validateDB($request, $series->id)) {
+            return $route;
+        } else {
+            $series->title = $request->seriesTitle;
+            $series->platform_id = $request->seriesPlatform;
+            $series->director_id = $request->seriesDirector;
+            $series->save();
+            $series->actors()->sync($request->seriesActors);
+            $series->audioLanguages()->sync($request->seriesAudioLanguages);
+            $series->subtitlesLanguages()->sync($request->seriesSubtitlesLanguages);
+            
+            return redirect()->route('series.index')->with('success', Lang::get('alerts.series_updated_successfully'));
+        }
     }
 
     public function delete(Request $request, Serie $series) {
-        
+        if($series != null) {
+            $series->actors()->detach();
+            $series->audioLanguages()->detach();
+            $series->subtitlesLanguages()->detach();
+            $series->delete();
+            return redirect()->route('series.index')->with('success', Lang::get('alerts.series_deleted_successfully'));
+        }
+
+        return redirect()->route('series.index')->with('danger', Lang::get('alerts.series_deleted_error'));
     }
 
     private function validateSeries($request) {
