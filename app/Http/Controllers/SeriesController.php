@@ -105,6 +105,16 @@ class SeriesController extends Controller
     }
 
     private function validateDB($request, $series_id = 0) {
+
+        $actorsValues = array_unique($request->seriesActors);
+        $actorsInDB = Actor::whereIn('id', $actorsValues)->count();
+
+        $audioLanguagesValues = array_unique($request->seriesAudioLanguages);
+        $audioLanguagesInDB = Language::whereIn('id', $audioLanguagesValues)->count();
+
+        $subtitlesLanguagesValues = array_unique($request->seriesSubtitlesLanguages);
+        $subtitlesLanguagesInDB = Language::whereIn('id', $subtitlesLanguagesValues)->count();
+        
         if(Serie::where([['title', $request->seriesTitle], ['id', '!=', $series_id]])->exists()) {
             $request->flashExcept('seriesTitle');
             return redirect()->back()->with('danger', Lang::get('alerts.series_title_exists_error'));
@@ -117,15 +127,15 @@ class SeriesController extends Controller
             $request->flash();
             return redirect()->back()->with('danger', Lang::get('alerts.series_director_doesntExist_error'));
         }
-        elseif(Actor::where('id', $request->seriesActors)->doesntExist()) {
+        elseif($actorsInDB !== count($actorsValues)) {
             $request->flash();
             return redirect()->back()->with('danger', Lang::get('alerts.series_actors_doesntExist_error'));
         }
-        elseif(Language::where('id', $request->seriesAudioLanguages)->doesntExist()) {
+        elseif($audioLanguagesInDB !== count($audioLanguagesValues)) {
             $request->flash();
             return redirect()->back()->with('danger', Lang::get('alerts.series_audioLanguages_doesntExist_error'));
         }
-        elseif(Language::where('id', $request->seriesSubtitlesLanguages)->doesntExist()) {
+        elseif($subtitlesLanguagesInDB !== count($subtitlesLanguagesValues)) {
             $request->flash();
             return redirect()->back()->with('danger', Lang::get('alerts.series_subtitlesLanguages_doesntExist_error'));
         }
