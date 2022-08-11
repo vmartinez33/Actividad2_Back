@@ -35,6 +35,11 @@ return [
     'series_deleted_successfully' => 'Serie borrada correctamente',
     'series_deleted_error' => 'Serie no borrada correctamente',
     'series_title_exists_error' => 'Ya existe una serie con ese titulo',
+    'series_platform_doesntExist_error' => 'La plataforma indicada no existe en la base de datos (ID incorrecto)',
+    'series_director_doesntExist_error' => 'El director indicado no existe en la base de datos (ID incorrecto)',
+    'series_actors_doesntExist_error' => 'Alguno de los actores indicado no existe en la base de datos (ID incorrecto)',
+    'series_audioLanguages_doesntExist_error' => 'Alguno de los idiomas de audio indicado no existe en la base de datos (ID incorrecto)',
+    'series_subtitlesLanguages_doesntExist_error' => 'Alguno de los idiomas de subtitulos indicado no existe en la base de datos (ID incorrecto)',
 
     'logged_successfully' => 'Has iniciado sesión correctamente',
     'registered_successfully' => 'Te has registrado correctamente. La sesión se ha iniciado automáticamente.',

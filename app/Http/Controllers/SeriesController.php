@@ -108,6 +108,26 @@ class SeriesController extends Controller
         if(Serie::where([['title', $request->seriesTitle], ['id', '!=', $series_id]])->exists()) {
             $request->flashExcept('seriesTitle');
             return redirect()->back()->with('danger', Lang::get('alerts.series_title_exists_error'));
+        } 
+        elseif(Platform::where('id', $request->seriesPlatform)->doesntExist()) {
+            $request->flash();
+            return redirect()->back()->with('danger', Lang::get('alerts.series_platform_doesntExist_error'));
+        }
+        elseif(Director::where('id', $request->seriesDirector)->doesntExist()) {
+            $request->flash();
+            return redirect()->back()->with('danger', Lang::get('alerts.series_director_doesntExist_error'));
+        }
+        elseif(Actor::where('id', $request->seriesActors)->doesntExist()) {
+            $request->flash();
+            return redirect()->back()->with('danger', Lang::get('alerts.series_actors_doesntExist_error'));
+        }
+        elseif(Language::where('id', $request->seriesAudioLanguages)->doesntExist()) {
+            $request->flash();
+            return redirect()->back()->with('danger', Lang::get('alerts.series_audioLanguages_doesntExist_error'));
+        }
+        elseif(Language::where('id', $request->seriesSubtitlesLanguages)->doesntExist()) {
+            $request->flash();
+            return redirect()->back()->with('danger', Lang::get('alerts.series_subtitlesLanguages_doesntExist_error'));
         }
     }
 }

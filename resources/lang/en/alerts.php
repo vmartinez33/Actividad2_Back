@@ -35,6 +35,11 @@ return [
     'series_deleted_successfully' => 'Series deleted successfully',
     'series_deleted_error' => 'Series not deleted correctly',
     'series_title_exists_error' => 'There is already a series with that title',
+    'series_platform_doesntExist_error' => 'The indicated platform does not exist in the database (wrong ID)',
+    'series_director_doesntExist_error' => 'The indicated director does not exist in the database (wrong ID)',
+    'series_actors_doesntExist_error' => 'Some of the actors indicated does not exist in the database (wrong ID)',
+    'series_audioLanguages_doesntExist_error' => 'Some of the indicated audio languages ​​do not exist in the database (wrong ID)',
+    'series_subtitlesLanguages_doesntExist_error' => 'Some of the indicated subtitle languages ​​do not exist in the database (wrong ID)',
 
     'logged_successfully' => 'You have successfully logged in',
     'registered_successfully' => 'You have successfully registered. The session has been started automatically.',
