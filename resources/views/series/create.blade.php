@@ -34,7 +34,9 @@
                                 <input id="seriesTitle" name="seriesTitle" type="text" placeholder="{{__('strings.series_placeholders.title')}}" 
                                     class="form-control" required @isset($series) value="{{old('seriesTitle', $series->title)}}" 
                                     @else value="{{old('seriesTitle')}}" @endisset>
+                                <br>
                                 <label for="seriesPlatform" class="form-label">{{__('strings.series_headers.platform')}}</label>
+                                <br>
                                 <select class="form-select" id="seriesPlatform" name="seriesPlatform" required>
                                         @foreach($platforms as $platform)
                                             <option value="{{$platform->id}}" 
@@ -45,9 +47,10 @@
                                             </option>   
                                         @endforeach
                                     </select>
-                                <br>
- 
+                                <br>   
+                                <br>   
                                 <label for="seriesDirector" class="form-label">{{__('strings.series_headers.director')}}</label>
+                                <br>
                                 <select class="form-select" id="seriesDirector" name="seriesDirector" required>
                                         @foreach($directors as $director)
                                             <option value="{{$director->id}}" 
@@ -60,7 +63,9 @@
                                         @endforeach
                                     </select>
                                 <br>
+                                <br>
                                 <label for="seriesActors[]" class="form-label">{{__('strings.series_headers.actors')}}</label>
+                                <br>
                                 @foreach ($actors as $actor) 
                                     <input type="checkbox" name="seriesActors[]" value="{{$actor->id}}" 
                                     @isset($series) 
@@ -73,6 +78,7 @@
                                 @endforeach
                                 <br>
                                 <label for="seriesAudioLanguages[]" class="form-label">{{__('strings.series_headers.audio_lang')}}</label>
+                                <br>
                                 @foreach ($languages as $lang) 
                                     <input type="checkbox" name="seriesAudioLanguages[]" value="{{$lang->id}}" 
                                     @isset($series) 
@@ -85,6 +91,7 @@
                                 @endforeach 
                                 <br>
                                 <label for="seriesSubtitlesLanguages[]" class="form-label">{{__('strings.series_headers.subtitles_lang')}}</label>
+                                <br>
                                 @foreach ($languages as $lang) 
                                     <input type="checkbox" name="seriesSubtitlesLanguages[]" value="{{$lang->id}}" 
                                     @isset($series) 
