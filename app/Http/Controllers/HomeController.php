@@ -24,11 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(url()->previous() == 'http://localhost/login') {
+        if(str_contains(url()->previous(), 'login')) {
             return redirect()->route('root')->with('info', Lang::get('alerts.logged_successfully'));
-        } elseif (url()->previous() == 'http://localhost/register') {
+        } 
+        elseif(str_contains(url()->previous(), 'register')) {
             return redirect()->route('root')->with('info', Lang::get('alerts.registered_successfully'));
-        } else {
+        } 
+        else {
             return redirect()->route('root')->with('danger', Lang::get('alerts.unknown_error'));
         }
 
