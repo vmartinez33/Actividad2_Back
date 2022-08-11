@@ -7,6 +7,7 @@ use App\Director;
 use App\Language;
 use App\Platform;
 use App\Serie;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Validator;
@@ -14,15 +15,32 @@ use Illuminate\Support\Facades\Validator;
 class SeriesController extends Controller
 {
     const PAGINATE_SIZE = 5;
-    public function index(Request $request) {    
+    public function index(Request $request) {   
+
         $text = null;
         if($request->has('text')) {
+
             $text = $request->text;
-            $series = Serie::where('title', 'like', '%' . $text . '%')->paginate(self::PAGINATE_SIZE);
+
+            $series = Serie::whereHas('platform', function (Builder $query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%');
+            })->orWhereHas('director', function (Builder $query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%')->orWhere('first_surname', 'like', '%' . $text . '%')
+                ->orWhere('second_surname', 'like', '%' . $text . '%')->orWhere('dni', 'like', '%' . $text . '%');
+            })->orWhereHas('actors', function (Builder $query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%')->orWhere('first_surname', 'like', '%' . $text . '%')
+                ->orWhere('second_surname', 'like', '%' . $text . '%')->orWhere('dni', 'like', '%' . $text . '%');
+            })->orWhereHas('audioLanguages', function (Builder $query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%')->orWhere('iso_code', 'like', '%' . $text . '%');
+            })->orWhereHas('subtitlesLanguages', function (Builder $query) use ($text) {
+                $query->where('name', 'like', '%' . $text . '%')->orWhere('iso_code', 'like', '%' . $text . '%');
+            })->orWhere('title', 'like', '%' . $text . '%')->paginate(self::PAGINATE_SIZE);
+
         } else {
             $series = Serie::paginate(self::PAGINATE_SIZE);
         }
         return view('series.index', ['series' => $series, 'text' => $text]);
+        
     }
 
     public function create() {
