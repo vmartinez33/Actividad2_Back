@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{__('strings.list_title.serie')}}    
+    {{__('strings.list_title.series')}}    
 @endsection
 
 @section('content')

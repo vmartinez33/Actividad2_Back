@@ -10,24 +10,28 @@ return [
     'platforms_updated_successfully' => 'Platform modified successfully',
     'platforms_deleted_successfully' => 'Platform deleted successfully',
     'platforms_deleted_error' => 'Platform not deleted correctly',
+    'platforms_relation_exists' => "This platform is related to some series, you can't delete it",
     'platforms_name_exists_error' => 'There is already a platform with that name',
 
     'actors_created_successfully' => 'Actor created successfully',
     'actors_updated_successfully' => 'Actor modified successfully',
     'actors_deleted_successfully' => 'Actor deleted successfully',
     'actors_deleted_error' => 'Actor not deleted correctly',
+    'actors_relation_exists' => "This actor is related to some series, you can't delete it",
     'actors_dni_exists_error' => 'There is already an actor with that DNI',
 
     'directors_created_successfully' => 'Director created successfully',
     'directors_updated_successfully' => 'Director modified successfully',
     'directors_deleted_successfully' => 'Director deleted successfully',
     'directors_deleted_error' => 'Director not deleted correctly',
+    'directors_relation_exists' => "This director is related to some series, you can't delete it",
     'directors_dni_exists_error' => 'There is already a director with that DNI',
     
     'languages_created_successfully' => 'Language created successfully',
     'languages_updated_successfully' => 'Language modified successfully',
     'languages_deleted_successfully' => 'Language deleted successfully',
     'languages_deleted_error' => 'Language not deleted correctly',
+    'languages_relation_exists' => "This language is related to some series, you can't delete it",
     'languages_iso_code_exists_error' => 'There is already a language with that ISO code',
     
     'series_created_successfully' => 'Series created successfully',

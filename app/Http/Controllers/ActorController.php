@@ -73,12 +73,16 @@ class ActorController extends Controller
     }
 
     public function delete(Request $request, Actor $actor) {
-        if($actor != null) {
-            $actor->delete();
-            return redirect()->route('actors.index')->with('success', Lang::get('alerts.actors_deleted_successfully'));
+        if($actor == null) {
+            return redirect()->route('actors.index')->with('danger', Lang::get('alerts.actors_deleted_error'));
+        } 
+        elseif(count($actor->series) > 0) {
+            return redirect()->route('actors.index')->with('danger', Lang::get('alerts.actors_relation_exists')); 
         }
+        dd('No puedes pasar!');
 
-        return redirect()->route('actors.index')->with('danger', Lang::get('alerts.actors_deleted_error'));
+        $actor->delete();
+        return redirect()->route('actors.index')->with('success', Lang::get('alerts.actors_deleted_successfully'));
     }
 
     private function validateActor($request) {

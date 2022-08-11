@@ -62,12 +62,16 @@ class LanguageController extends Controller
     }
 
     public function delete(Request $request, Language $language) {
-        if($language != null) {
-            $language->delete();
-            return redirect()->route('languages.index')->with('success', Lang::get('alerts.languages_deleted_successfully'));
+        if($language == null) {
+            return redirect()->route('languages.index')->with('danger', Lang::get('alerts.languages_deleted_error'));
+        } 
+        elseif(count($language->seriesAudio) > 0 or count($language->seriesSubtitles) > 0) {
+            return redirect()->route('languages.index')->with('danger', Lang::get('alerts.languages_relation_exists'));
         }
+        dd('NO PUEDES PASAR!');
 
-        return redirect()->route('languages.index')->with('danger', Lang::get('alerts.languages_deleted_error'));
+        $language->delete();
+        return redirect()->route('languages.index')->with('success', Lang::get('alerts.languages_deleted_successfully'));
     }
 
     private function validateLanguage($request) {

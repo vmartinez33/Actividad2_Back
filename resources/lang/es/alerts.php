@@ -10,24 +10,28 @@ return [
     'platforms_updated_successfully' => 'Plataforma modificada correctamente',
     'platforms_deleted_successfully' => 'Plataforma borrada correctamente',
     'platforms_deleted_error' => 'Plataforma no borrada correctamente',
+    'platforms_relation_exists' => 'Esta plataforma está relacionada con alguna serie, no puedes borrarla',
     'platforms_name_exists_error' => 'Ya existe una plataforma con ese nombre',
 
     'actors_created_successfully' => 'Actor creado correctamente',
     'actors_updated_successfully' => 'Actor modificado correctamente',
     'actors_deleted_successfully' => 'Actor borrado correctamente',
     'actors_deleted_error' => 'Actor no borrado correctamente',
+    'actors_relation_exists' => 'Este actor está relacionado con alguna serie, no puedes borrarlo',
     'actors_dni_exists_error' => 'Ya existe un actor con ese DNI',
 
     'directors_created_successfully' => 'Director creado correctamente',
     'directors_updated_successfully' => 'Director modificado correctamente',
     'directors_deleted_successfully' => 'Director borrado correctamente',
     'directors_deleted_error' => 'Director no borrado correctamente',
+    'directors_relation_exists' => 'Este director está relacionado con alguna serie, no puedes borrarlo',
     'directors_dni_exists_error' => 'Ya existe un director con ese DNI',
     
     'languages_created_successfully' => 'Idioma creado correctamente',
     'languages_updated_successfully' => 'Idioma modificado correctamente',
     'languages_deleted_successfully' => 'Idioma borrado correctamente',
     'languages_deleted_error' => 'Idioma no borrado correctamente',
+    'languages_relation_exists' => 'Este idioma está relacionado con alguna serie, no puedes borrarlo',
     'languages_iso_code_exists_error' => 'Ya existe un idioma con ese código ISO',
     
     'series_created_successfully' => 'Serie creada correctamente',

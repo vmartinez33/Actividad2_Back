@@ -60,12 +60,15 @@ class PlatformController extends Controller
     }
 
     public function delete(Request $request, Platform $platform) {
-        if($platform != null) {
-            $platform->delete();
-            return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_deleted_successfully'));
+        if($platform == null) {
+            return redirect()->route('platforms.index')->with('danger', Lang::get('alerts.platforms_deleted_error'));
+        } 
+        elseif(count($platform->series) > 0) {
+            return redirect()->route('platforms.index')->with('danger', Lang::get('alerts.platforms_relation_exists')); 
         }
 
-        return redirect()->route('platforms.index')->with('danger', Lang::get('alerts.platforms_deleted_error'));
+        $platform->delete();
+        return redirect()->route('platforms.index')->with('success', Lang::get('alerts.platforms_deleted_successfully'));
     }
 
     private function validatePlatform($request) {

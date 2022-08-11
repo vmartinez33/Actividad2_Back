@@ -72,12 +72,15 @@ class DirectorController extends Controller
     }
 
     public function delete(Request $request, Director $director) {
-        if($director != null) {
-            $director->delete();
-            return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_deleted_successfully'));
+        if($director == null) {
+            return redirect()->route('directors.index')->with('danger', Lang::get('alerts.directors_deleted_error'));
+        } 
+        elseif(count($director->series) > 0) {
+            return redirect()->route('directors.index')->with('danger', Lang::get('alerts.directors_relation_exists')); 
         }
 
-        return redirect()->route('directors.index')->with('danger', Lang::get('alerts.directors_deleted_error'));
+        $director->delete();
+        return redirect()->route('directors.index')->with('success', Lang::get('alerts.directors_deleted_successfully'));
     }
 
     private function validateDirector($request) {
@@ -86,7 +89,7 @@ class DirectorController extends Controller
             'directorFirstSurname' => ['required', 'string', 'max:50'],
             'directorSecondSurname' => ['nullable', 'string', 'max:50'],
             'directorDni' => ['required', 'string', 'between:9, 10'],
-            //'directorBirthDate' => ['date_format:d/m/Y'],
+            'actorBirthDate' => ['required', 'date', 'before:today'],
             'directorNationality' => ['required', 'string', 'max:50']
         ]);
     }
