@@ -87,7 +87,6 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
             <div class="flex-center position-ref full-height">
                 <div id="app" class="content">
