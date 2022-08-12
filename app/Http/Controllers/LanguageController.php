@@ -68,7 +68,6 @@ class LanguageController extends Controller
         elseif(count($language->seriesAudio) > 0 or count($language->seriesSubtitles) > 0) {
             return redirect()->route('languages.index')->with('danger', Lang::get('alerts.languages_relation_exists'));
         }
-        dd('NO PUEDES PASAR!');
 
         $language->delete();
         return redirect()->route('languages.index')->with('success', Lang::get('alerts.languages_deleted_successfully'));
