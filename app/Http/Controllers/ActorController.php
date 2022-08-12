@@ -79,7 +79,6 @@ class ActorController extends Controller
         elseif(count($actor->series) > 0) {
             return redirect()->route('actors.index')->with('danger', Lang::get('alerts.actors_relation_exists')); 
         }
-        dd('No puedes pasar!');
 
         $actor->delete();
         return redirect()->route('actors.index')->with('success', Lang::get('alerts.actors_deleted_successfully'));
