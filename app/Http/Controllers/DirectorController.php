@@ -89,7 +89,7 @@ class DirectorController extends Controller
             'directorFirstSurname' => ['required', 'string', 'max:50'],
             'directorSecondSurname' => ['nullable', 'string', 'max:50'],
             'directorDni' => ['required', 'string', 'between:9, 10'],
-            'actorBirthDate' => ['required', 'date', 'before:today'],
+            'directorBirthDate' => ['required', 'date', 'before:today'],
             'directorNationality' => ['required', 'string', 'max:50']
         ]);
     }
