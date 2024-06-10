@@ -7,16 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Descripción
+Proyecto desarrollado con PHP más framework Laravel y base de datos MySQL. Interfaz para gestionar tu propia biblioteca de series; CRUD de actores, directores y plataformas de emisión, así como de las propias series. Versión mejorada del proyecto https://github.com/vmartinez33/PHP-CRUD_series
+
 # Instrucciones a seguir para que el proyecto funcione
 
-- **PASO 1** >>> composer create-project --prefer-dist laravel/laravel biblioteca "6.*" (Se necesita php 7, el 8 no funciona con laravel 6)
+- **PASO 1** >>> composer install
 
-- **PASO 2** >>> borrar todos los archivos del proyecto menos el directorio "vendor"; poner los archivos adjuntados en la entrega.
+- **PASO 2** >>> Crear una base de datos desde phpMyadmin con el nombre "biblioteca_series" (comprobar que la cadena de conexión sea correcta).
 
-- **PASO 3** >>> composer require laravel/ui "^1.0" --dev
+- **PASO 3** >>> composer dump-autoload
 
-- **PASO 4** >>> Crear una base de datos desde phpMyadmin con el nombre "biblioteca_series" (comprobar que la cadena de conexión sea correcta).
-
-- **PASO 5** >>> composer dump-autoload
-
-- **PASO 6** >>> php artisan migrate:fresh --seed
+- **PASO 4** >>> php artisan migrate:fresh --seed
